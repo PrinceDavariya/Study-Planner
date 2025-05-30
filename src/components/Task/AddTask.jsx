@@ -43,21 +43,22 @@ export default function DialogDemo() {
               alert("Please enter a task");
               return;
             }
-            // Task Save
+          
+           
+            const db = getDatabase(app);
+            const tasksRef = ref(db, "Tasks"); // Reference to the "Tasks" url in the database
+            const uniqueid = push(tasksRef); // Create a new unique key for the task
+            const id  = uniqueid.key; // Get the unique key
             const newTask = {
+              id: id, // Store the unique ID
               Task,
               Priority,
               completed: false,
               createdAt: date.toISOString(), // Store the date as an ISO string
             };
-           
-            const db = getDatabase(app);
-            const tasksRef = ref(db, "Tasks"); // Reference to the "Tasks" url in the database
-            const uniqueid = push(tasksRef); // Create a new unique key for the task
-
             set(uniqueid, newTask); // stores the task object
 
-            setTasks((prevTasks) => [...prevTasks, newTask]);
+            setTasks((prevTasks) => [...prevTasks, newTask, ]); // Update the local state with the new task
             setTask("");
             setPriority("Low");
             setDate(null); // Reset the date picker

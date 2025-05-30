@@ -1,21 +1,10 @@
 import React from 'react';
 import { ClockIcon, BookIcon, CheckCircleIcon, AlertCircleIcon } from 'lucide-react';
 export function Overview() {
-  const stats = [{
-    title: 'Study Hours',
-    value: '24.5',
-    unit: 'hrs',
-    change: '+2.5',
-    icon: <ClockIcon className="h-6 w-6 text-blue-600" />,
-    color: 'bg-blue-50'
-  }, {
-    title: 'Subjects',
-    value: '6',
-    unit: 'active',
-    change: '0',
-    icon: <BookIcon className="h-6 w-6 text-purple-600" />,
-    color: 'bg-purple-50'
-  }, {
+  
+  const stats = [
+  //  
+   {
     title: 'Completed Tasks',
     value: '18',
     unit: 'tasks',
