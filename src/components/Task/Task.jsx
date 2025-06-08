@@ -10,8 +10,7 @@ export function Tasks({ date, setDate }) {
   const [Tasks, setTasks] = useState();
   const [allTasks, setAllTasks] = useState([]);
 
-  const { Contexttasks, setContexttasks } = useContext(Taskcontext);
-  console.log("Context tasks:", Contexttasks);
+  const { setContexttasks } = useContext(Taskcontext);
 
   function firebaseSavedTask() {
     const db = getDatabase(app);
@@ -71,7 +70,7 @@ export function Tasks({ date, setDate }) {
     }
   };
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm max-h-[400px]  overflow-y-scroll    p-4">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-bold text-gray-800">Tasks</h2>
         <AddTask> </AddTask>
@@ -89,7 +88,6 @@ export function Tasks({ date, setDate }) {
               <div className="flex items-start gap-3">
                 <div
                   onClick={(e) => {
-                    console.log("Task clicked:", task);
                     taskcompleted(task.id, task.completed);
                   }}
                   className={`mt-0.5 h-5 w-5 rounded-full border ${
@@ -142,9 +140,9 @@ export function Tasks({ date, setDate }) {
       )}
 
       {/* Button to view all tasks */}
-      <button className="w-full mt-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md">
+      {/* <button className="w-full mt-4 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-md">
         View All Tasks
-      </button>
+      </button> */}
     </div>
   );
 }

@@ -42,8 +42,7 @@ export default function DialogDemo() {
             if (Task === "") {
               alert("Please enter a task");
               return;
-            }
-          
+            }          
            
             const db = getDatabase(app);
             const tasksRef = ref(db, "Tasks"); // Reference to the "Tasks" url in the database
